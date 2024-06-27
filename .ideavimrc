@@ -2,22 +2,39 @@
 "   the same commands as the original .vimrc configuration.
 " You can find a list of commands here: https://jb.gg/h38q75
 " Find more examples here: https://jb.gg/share-ideavimrc
+let mapleader = " "
 
-
-"" -- Suggested options --
-" Show a few lines of context around the cursor. Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
 set scrolloff=15
 set relativenumber
-
-" Do incremental searching.
 set incsearch
 set ignorecase
+set smartcase
+set idearefactormode=keep
+set ideajoin
+
+" Select all
+map <c-a> ggVG
+
+" Clipboard
+map <c-c> "+y
+map <c-x> "+d
+map <c-v> "+p
+
+" Move cursor between windows
+map <c-h> <C-w>h
+map <c-j> <C-w>j
+map <c-k> <C-w>k
+map <c-l> <C-w>l
+
+map <leader> <Action>(SearchEverywhere)
+
+imap <m-j> <Action>(MoveStatementDown)
+imap <m-k> <Action>(MoveStatementUp)
+
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
-
 " Highlight copied text
 Plug 'machakann/vim-highlightedyank'
 " Commentary plugin
