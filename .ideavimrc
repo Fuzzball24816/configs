@@ -14,21 +14,41 @@ set smartcase
 set idearefactormode=keep
 set ideajoin
 set clipboard=ideaput
+set clipboard+=unnamedplus
 set notimeout
 set visualbell
+set cursorline
 
-" Select all
-map <C-a> ggVG
+sethandler <C-s> a:vim
+sethandler <C-c> a:vim
+sethandler <C-e> a:ide
 
-" Move cursor between windows
+map <C-c> <Esc>
+map <C-s> <Action>(SaveAll)
+map <C-d> <C-d>zz
+map <C-u> <C-u>zz
+
+" Windows 
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Copy/paste map to ctrl c/v
-map <C-c> "+y
-map <C-v> "+p
+" Tabs
+map <A-h> <Action>(PreviousTab)
+map <A-l> <Action>(NextTab)
+
+map <leader>tL <Action>(MoveEditorToOppositeTabGroup)
+map <leader>tl <Action>(SplitVertically)
+map <leader>tj <Action>(SplitHorizontally)
+map <leader>tc <Action>(Unsplit)
+
+map <leader>ff <Action>(FindInPath)
+
+map <Esc> :noh<cr>
+
+map H ^
+map L $
 
 " Global Search
 map <leader><leader> <Action>(SearchEverywhere)
