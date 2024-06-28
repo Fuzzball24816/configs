@@ -2,34 +2,50 @@
 "   the same commands as the original .vimrc configuration.
 " You can find a list of commands here: https://jb.gg/h38q75
 " Find more examples here: https://jb.gg/share-ideavimrc
+let mapleader = " "
 
-
-"" -- Suggested options --
-" Show a few lines of context around the cursor. Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
 set scrolloff=15
+set number
 set relativenumber
-
-" Do incremental searching.
 set incsearch
+set hlsearch
 set ignorecase
+set smartcase
+set idearefactormode=keep
+set ideajoin
+set clipboard=ideaput
+set notimeout
+set visualbell
+
+" Select all
+map <C-a> ggVG
+
+" Move cursor between windows
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Copy/paste map to ctrl c/v
+map <C-c> "+y
+map <C-v> "+p
+
+" Global Search
+map <leader><leader> <Action>(SearchEverywhere)
+
+" Move lines
+map <A-k> <Action>(MoveLineUp)
+map <A-j> <Action>(MoveLineDown)
+
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
+" New line without entering insert mode
+map <CR> m`o<Esc>``
+
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
-
-" Highlight copied text
 Plug 'machakann/vim-highlightedyank'
-" Commentary plugin
 Plug 'tpope/vim-commentary'
+set which-key
 
-
-"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-"" Map \r to the Reformat Code action
-"map \r <Action>(ReformatCode)
-
-"" Map <leader>d to start debug
-"map <leader>d <Action>(Debug)
-
-"" Map \b to toggle the breakpoint on the current line
-"map \b <Action>(ToggleLineBreakpoint)
+map <leader>ir :source ~/.ideavimrc<CR>
