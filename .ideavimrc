@@ -20,11 +20,12 @@ set visualbell
 set cursorline
 
 sethandler <C-s> a:vim
-sethandler <C-c> a:vim
 sethandler <C-e> a:ide
+sethandler <C-c> a:ide
+sethandler <C-p> a:ide
 
-map <C-c> <Esc>
 map <C-s> <Action>(SaveAll)
+imap <C-s> <Action>(SaveAll)
 map <C-d> <C-d>zz
 map <C-u> <C-u>zz
 
@@ -46,6 +47,8 @@ map <leader>tc <Action>(Unsplit)
 map <leader>ff <Action>(FindInPath)
 
 map <Esc> :noh<cr>
+
+map <C-a> ggVG
 
 map H ^
 map L $
