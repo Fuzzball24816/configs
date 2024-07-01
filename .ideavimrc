@@ -38,6 +38,12 @@ map <C-l> <C-w>l
 " Tabs
 map <A-h> <Action>(PreviousTab)
 map <A-l> <Action>(NextTab)
+map <leader>oq <Action>(CloseAllEditorsButActive)
+map <leader>w <Action>(CloseContent)
+map <leader>q <Action>(HideAllWindows)
+
+map <C-j> <Action>(NextDiff)
+map <C-k> <Action>(PreviousDiff)
 
 map <leader>tL <Action>(MoveEditorToOppositeTabGroup)
 map <leader>tl <Action>(SplitVertically)
@@ -47,14 +53,17 @@ map <leader>tc <Action>(Unsplit)
 map <leader>ff <Action>(FindInPath)
 
 map <Esc> :noh<cr>
-
+ 
 map <C-a> ggVG
 
 map H ^
 map L $
 
+" map <leader> to no op
+map <leader> <Nop>
+
 " Global Search
-map <leader><leader> <Action>(SearchEverywhere)
+map <leader>s <Action>(SearchEverywhere)
 
 " Move lines
 map <A-k> <Action>(MoveLineUp)
@@ -63,12 +72,13 @@ map <A-j> <Action>(MoveLineDown)
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
-" New line without entering insert mode
 map <CR> m`o<Esc>``
+" New line without entering insert mode
 
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-commentary'
 set which-key
 
-map <leader>ir :source ~/.ideavimrc<CR>
+map <leader>cs :source ~/.ideavimrc<CR>
+map <leader>co :e ~/.ideavimrc<CR>
