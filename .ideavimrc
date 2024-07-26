@@ -66,6 +66,5 @@ map <CR> m`o<Esc>``
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-commentary'
-set which-key
 
 map <leader>ir :source ~/.ideavimrc<CR>
