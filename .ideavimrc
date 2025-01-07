@@ -22,6 +22,7 @@ set cursorline
 sethandler <C-s> a:vim
 sethandler <C-c> a:vim
 sethandler <C-e> a:ide
+sethandler <C-v> a:ide
 
 map <C-c> <Esc>
 map <C-s> <Action>(SaveAll)
